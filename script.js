@@ -6,10 +6,25 @@ let yourChoice;
 const choices = ["rock","paper","scissors"];
 const displayYourChoice = document.querySelector('#yourChoice');
 const displayResults = document.querySelector('#results');
-const displayCash = document.querySelector("#currentCash")
+
+const displayCash = document.querySelector("#currentCash");
+const timesTwoButton = document.querySelector('#timestwo')
+const displayCost = document.querySelector("#currentCost")
+const resetButton = document.querySelector("#resetButton")
 let cash = 1000
 let cost = 100
 
+resetButton.addEventListener("click", resetCost)
+
+timesTwoButton.addEventListener("click", timesTwoCost);
+function timesTwoCost() {
+    cost += cost
+    displayCost.innerHTML = 'Current Cost = ' + cost;
+}
+
+function resetCost() {
+    
+}
 
 
 rockbutton.addEventListener("click", selectRock)
@@ -42,17 +57,18 @@ function computerChoice() {
     } else if (
         computerNumber === "rock" && yourChoice === "paper") {
         displayResults.innerHTML = "You win!";
-        cash += cost * 2
+        cash += cost * 2;
     } else if (computerNumber === "paper" && yourChoice === "scissors") {
         displayResults.innerHTML = "You win!";
-        cash += cost * 2
+        cash += cost * 2;
     } else if (computerNumber === "paper" && yourChoice === "rock") {
         displayResults.innerHTML = "You win!";
-        cash += cost * 2
+        cash += cost * 2;
     } else {
         displayResults.innerHTML = "You lose!";
     };
     displayCash.innerHTML = "Cash =" + cash;
+    cash = 100;
 }
 
 
